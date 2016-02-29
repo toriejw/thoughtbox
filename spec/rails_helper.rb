@@ -31,12 +31,26 @@ module TestHelpers
     User.create(email: "hello@email.com", password: "password")
   end
 
+  def create_second_user
+    User.create(email: "hi@email.com", password: "pw")
+  end
+
   def login_user
     user = create_user
     visit login_path
 
-    fill_in "session_email", with: "hello@email.com"
+    fill_in "session_email", with: user.email
     fill_in "session_password", with: "password"
+
+    click_button "Log In"
+  end
+
+  def login_second_user
+    user = create_second_user
+    visit login_path
+
+    fill_in "session_email", with: user.email
+    fill_in "session_password", with: "pw"
 
     click_button "Log In"
   end

@@ -3,14 +3,16 @@ class LinkController < ApplicationController
   def index
     if !current_user
       redirect_to login_path
+    else
+      @link = Link.new
+      @links = current_user.links
     end
-    @link = Link.new
-    @links = Link.all
   end
 
   def create
     link = Link.new(link_params)
     if link.save
+      current_user.links << link
       flash[:notice] = "Link was created."
     else
       flash[:errors] = "Invalid. Try again."

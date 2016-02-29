@@ -55,9 +55,16 @@ feature "viewing links" do
     expect(page).to have_content("Status: unread")
   end
 
-  # scenario "authenticated user views only their links" do
-  #   login_user
-  #   visit root_path
-  # end
+  scenario "authenticated user can't view other users links" do
+    login_user
+    link = create_link
+    visit root_path
+    click_button "Log Out"
+
+    login_second_user
+    visit root_path
+
+    expect(page).to_not have_content(link.title)
+  end
 
 end
