@@ -26,7 +26,24 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+module TestHelpers
+  def create_user
+    User.create(email: "hello@email.com", password: "password")
+  end
+
+  def login_user
+    user = create_user
+    visit login_path
+
+    fill_in "session_email", with: "hello@email.com"
+    fill_in "session_password", with: "password"
+
+    click_button "Log In"
+  end
+end
+
 RSpec.configure do |config|
+  config.include TestHelpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
