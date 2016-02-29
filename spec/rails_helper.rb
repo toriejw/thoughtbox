@@ -40,6 +40,18 @@ module TestHelpers
 
     click_button "Log In"
   end
+
+  def create_link
+    title = "Turing"
+
+    visit root_path
+
+    fill_in "link_title", with: title
+    fill_in "link_url", with: "https://www.turing.io/"
+    click_button "Create Link"
+
+    Link.find_by(title: title)
+  end
 end
 
 RSpec.configure do |config|

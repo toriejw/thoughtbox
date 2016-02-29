@@ -18,10 +18,7 @@ feature "submitting links" do
 
     expect(current_path).to eq(root_path)
     expect(new_links_count - old_links_count).to eq(1)
-    # The Link model should include:
-    #
-    # A valid URL location for the link
-    # A title for the link
+
     # Additionally, all links have a read status that is either true or false. This column will default to false.
 
   end
@@ -48,9 +45,14 @@ end
 feature "viewing links" do
 
   scenario "authenticated user can view all of their links" do
-    # loading the index page should display all of my links
     login_user
+    link = create_link
+
     visit root_path
+
+    expect(page).to have_content(link.title)
+    expect(page).to have_content(link.url)
+    expect(page).to have_content(Status: unread)
   end
 
   # scenario "authenticated user views only their links" do
