@@ -54,6 +54,7 @@ feature "viewing links" do
   scenario "authenticated user can't view other users links" do
     login_user
     link = create_link
+    
     visit root_path
     click_button "Log Out"
 

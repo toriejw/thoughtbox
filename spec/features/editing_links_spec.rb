@@ -14,7 +14,7 @@ feature "user can edit their links" do
 
     fill_in "link_title", with: "new title"
     fill_in "link_url", with: "https://www.google.ca"
-    click_button "Submit"
+    click_button "Update Link"
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("new title")
