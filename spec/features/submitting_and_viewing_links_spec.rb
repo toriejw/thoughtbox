@@ -11,7 +11,7 @@ feature "submitting links" do
     visit root_path
 
     fill_in "link_title", with: "Turing"
-    fill_in "link_url", with: "turing.io"
+    fill_in "link_url", with: "https://www.turing.io/"
     click_button "Create Link"
 
     new_links_count = Link.count
