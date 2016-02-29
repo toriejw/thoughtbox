@@ -8,4 +8,10 @@ Rails.application.routes.draw do
 
   resources :user, only: [:create]
   resources :link, only: [:create]
+
+  namespace :api do
+    namespace :v1 do
+      resources :link, only: [:update], :defaults => {:format => "json"}
+    end
+  end
 end

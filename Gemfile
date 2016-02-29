@@ -13,7 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
 gem 'bcrypt'
 gem 'validate_url'
-
+gem 'responders'
 
 group :development, :test do
   gem 'byebug'

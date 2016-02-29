@@ -10,8 +10,13 @@
   =f.submit
 
 %h1 Links:
--@links.each do |link|
-  .link
-    %h2= link.title
-    %h3= link.url
-    %p= "Status: #{link.status}"
+#link-list
+  -@links.each do |link|
+    .link
+      %h2= link.title
+      %h3= link.url
+      =content_tag :p, "Status: #{link.status}", class: link.status, id: "status-#{link.id}"
+      - if link.read?
+        =button_tag "Mark as unread", class: "change-button-status read-button", id: link.id
+      - else
+        =button_tag "Mark as read", class: "change-button-status unread-button", id: link.id
