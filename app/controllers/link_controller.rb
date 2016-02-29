@@ -5,6 +5,7 @@ class LinkController < ApplicationController
       redirect_to login_path
     end
     @link = Link.new
+    @links = Link.all
   end
 
   def create

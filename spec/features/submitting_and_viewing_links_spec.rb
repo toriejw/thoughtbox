@@ -52,7 +52,7 @@ feature "viewing links" do
 
     expect(page).to have_content(link.title)
     expect(page).to have_content(link.url)
-    expect(page).to have_content(Status: unread)
+    expect(page).to have_content("Status: unread")
   end
 
   # scenario "authenticated user views only their links" do
