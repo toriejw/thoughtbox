@@ -2,6 +2,7 @@ $(document).ready(function () {
   viewReadLinks();
   viewUnreadLinks();
   viewAllLinks();
+  sortAlphabetically();
 });
 
 function viewReadLinks() {
@@ -31,6 +32,18 @@ function viewAllLinks() {
     $.each($links, function (index, link) {
       $(link).show();
     });
+  });
+}
+
+function sortAlphabetically() {
+  $('#filter-options').on('click', '.sort-alphabetically', function () {
+    var $links = $('#link-list').find('.link');
+
+    var orderedLinks = $links.sort(function(a, b){
+      return $(a).find('h2').text() > $(b).find('h2').text();
+    });
+
+    $('#link-list').html(orderedLinks);
   });
 }
 
