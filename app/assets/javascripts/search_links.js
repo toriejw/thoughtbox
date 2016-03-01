@@ -1,22 +1,22 @@
 $(document).ready(function () {
-  searchIdeas();
+  searchLinks();
 });
 
-function searchIdeas() {
+function searchLinks() {
   $('#filter-bar').keyup(function(){
-    filterIdeas($('#filter-bar').val());
+    filterLinks($('#filter-bar').val());
   });
 }
 
-function filterIdeas(searchQuery) {
+function filterLinks(searchQuery) {
   var $links = $('#link-list').find('.link')
 
   $.each($links, function (index, link) {
-    showIdeaIfSearched(link, searchQuery);
+    showLinkIfSearched(link, searchQuery);
   });
 }
 
-function showIdeaIfSearched(link, searchQuery) {
+function showLinkIfSearched(link, searchQuery) {
   var title = $(link).find('.link-title').text();
   var url = $(link).find('.link-url').text();
 

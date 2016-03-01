@@ -20,6 +20,14 @@
     %h2 Search Links:
     =text_field_tag "filter_query", "", class: "form-control", id: "filter-bar"
 
+    %br
+
+    %h2 Filter links:
+    #filter-options
+      =button_tag "Read links", class: "btn view-read-links"
+      =button_tag "Unread links", class: "btn view-unread-links"
+      =button_tag "All links", class: "btn view-all-links"
+
 .col-md-8
   %h2 Links:
   #link-list

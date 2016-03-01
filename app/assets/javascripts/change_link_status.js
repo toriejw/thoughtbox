@@ -51,7 +51,11 @@ function updatePageContent(status, id) {
     var buttonText = "Mark as read";
     var statusText = "Status: unread";
   }
-  
+
+  var statusNotice = document.getElementById("status-" + id)
   document.getElementById(id).innerHTML = buttonText;
-  document.getElementById("status-" + id).innerHTML = statusText;
+  statusNotice.innerHTML = statusText;
+  
+  $(statusNotice).toggleClass('read');
+  $(statusNotice).toggleClass('unread');
 }
