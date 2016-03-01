@@ -1,8 +1,13 @@
+%h1 Sign up:
+
 =form_for @user, url: user_index_path do |f|
   Email:
   = f.text_field :email
+  %br
   Password:
   = f.text_field :password
+  %br
   Confirm password:
   = f.text_field :password_confirmation
-  = f.submit "Register"
+  %br
+  = f.submit "Register", class: "btn btn-primary"
