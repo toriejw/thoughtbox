@@ -52,10 +52,10 @@ function updatePageContent(status, id) {
     var statusText = "Status: unread";
   }
 
-  var statusNotice = document.getElementById("status-" + id)
+  var statusNotice = document.getElementById("status-" + id);
   document.getElementById(id).innerHTML = buttonText;
   statusNotice.innerHTML = statusText;
-  
+
   $(statusNotice).toggleClass('read');
   $(statusNotice).toggleClass('unread');
 }
